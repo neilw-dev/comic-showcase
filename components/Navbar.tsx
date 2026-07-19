@@ -2,12 +2,12 @@ import Link from "next/link";
 
 export default function Navbar() {
     return(
-        <nav>
-            <h2>My Cousin's Comic Studio</h2>
+        <nav className="flex justify-between items-center p-4 bg-gray-900 text-white">
+            <h2>My Cousin's <br />Comic Studio</h2>
             
-            <ul>
+            <ul className="flex gap-8">
                 <li>
-                    <Link href="/">Home</Link>
+                    <Link className="hover:text-gray-400" href="/">Home</Link>
                 </li>
 
                 <li>
