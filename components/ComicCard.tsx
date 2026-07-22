@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ComicCard({ comic }) {
     return (
@@ -14,9 +15,9 @@ export default function ComicCard({ comic }) {
             <h2>{comic.title}</h2>
             <p>{comic.description}</p>
             <p>{comic.price}</p>
-            <button className="mt-4 bg-gray-900 text-white px-4 py-2 rounded hover:bg-green-700">
+            <Link href={` /comics/${comic.slug}`} className=" inline-block mt-4 bg-gray-900 text-white px-4 py-2 rounded hover:bg-green-700">
                 View Comic
-            </button>
+            </Link>
         </div>
     );
 }
