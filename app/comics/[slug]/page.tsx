@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { comics } from "@/lib/comics"
 import Link from "next/link";
+import Button from "@/components/Button";
 
 type ComicPageProps = {
     params: Promise<{
@@ -37,6 +38,7 @@ export default async function ComicPage({ params }: ComicPageProps) {
                             alt={comic.title}
                             fill
                             sizes="(max-width: 768px) 100vw, 66vw"
+                            loading="eager"
                             className="object-over rounded-lg drop-shadow-xl"
                         />
                     </div>
@@ -53,10 +55,15 @@ export default async function ComicPage({ params }: ComicPageProps) {
                         <p className="mt-4 text-xl font-semibold">
                             {comic.price}
                         </p>
-
-                        <button className="mt-6 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500">
+                        <Button variant="primary">
                             Buy Now
-                        </button>
+                        </Button>
+                        <Button variant="secondary">
+                            Cancel
+                        </Button>
+                        <Button variant="danger">
+                            Delete
+                        </Button>
                     </div>
                 </div>
             </div>
