@@ -2,6 +2,7 @@ import Image from "next/image";
 import { comics } from "@/lib/comics"
 import Link from "next/link";
 import Button from "@/components/Button";
+import BuyButton from "@/components/BuyButton";
 
 type ComicPageProps = {
     params: Promise<{
@@ -55,15 +56,8 @@ export default async function ComicPage({ params }: ComicPageProps) {
                         <p className="mt-4 text-xl font-semibold">
                             {comic.price}
                         </p>
-                        <Button variant="primary">
-                            Buy Now
-                        </Button>
-                        <Button variant="secondary">
-                            Cancel
-                        </Button>
-                        <Button variant="danger">
-                            Delete
-                        </Button>
+                        <BuyButton />
+                        
                     </div>
                 </div>
             </div>

@@ -1,11 +1,12 @@
+"use client"
+
 type ButtonProps = {
     children: React.ReactNode;
     variant?: "primary" | "secondary" | "danger";
+    onClick?: () => void;
 };
 
-export default function Button({ children, variant = "primary" }: ButtonProps) {
-
-    const variants = {
+const variants = {
         primary:
             "bg-blue-600 hover:bg-blue-500 text-white",
 
@@ -15,8 +16,17 @@ export default function Button({ children, variant = "primary" }: ButtonProps) {
         danger:
             "bg-red-600 hover:bg-red-500 text-white",
     }
+
+export default function Button({ 
+    children, 
+    variant = "primary", 
+    onClick, 
+}: ButtonProps) { 
     return (
-        <button className={`${variants[variant]} px-4 py-4 rounded-lg transition-colors`}>
+        <button 
+            onClick={onClick}
+            className={`${variants[variant]} px-4 py-4 rounded-lg transition-colors mt-4`}
+        >
             {children}
         </button>
     )
