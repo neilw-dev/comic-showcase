@@ -1,10 +1,8 @@
 "use client"
 
-type ButtonProps = {
-    children: React.ReactNode;
-    variant?: "primary" | "secondary" | "danger";
-    onClick?: () => void;
-};
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    variant?: "primary" | "secondary" | "danger";}
+    
 
 const variants = {
         primary:
@@ -20,12 +18,13 @@ const variants = {
 export default function Button({ 
     children, 
     variant = "primary", 
-    onClick, 
+    className,
+    ...props 
 }: ButtonProps) { 
     return (
         <button 
-            onClick={onClick}
-            className={`${variants[variant]} px-4 py-4 rounded-lg transition-colors mt-4`}
+            {...props}
+            className={`${variants[variant]} px-4 py-4 rounded-lg transition-colors mt-4 ${className ?? ""}`}
         >
             {children}
         </button>
