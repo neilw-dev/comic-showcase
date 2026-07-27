@@ -8,7 +8,9 @@ export default function ComicCard({ comic }) {
                 <Image 
                     src={comic.image}
                     alt={comic.title}
+                    loading= "eager"
                     fill
+                    sizes="(max-width: 768px) 100vw, 66vw"
                     className="object-cover rounded-lg"
                 />
             </div>
