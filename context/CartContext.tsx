@@ -1,15 +1,14 @@
 "use client";
 
 import { createContext, useState } from "react";
+import type { Comic }  from "@/lib/types";
 
-type Comic = {
-    id: number;
-    title: string;
-    price: number;
-    image: string;
+type CartContextType = {
+    cart: Comic[];
+    addToCart: (comic: Comic) => void;
 };
 
-const CartContext = createContext(null);
+const CartContext = createContext<CartContextType | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
 

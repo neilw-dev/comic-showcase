@@ -2,9 +2,16 @@
 
 import { useEffect, useState } from "react";
 import Button from "./Button";
+import type { Comic } from "@/lib/types";
+import { useCart } from "@/hooks/useCart";
 
-export default function AddToCartButton() {
+type AddToCartButtonProps = {
+    comic: Comic;
+};
 
+export default function AddToCartButton({ comic }: AddToCartButtonProps) {
+
+    const { addToCart } = useCart();
     const [added, setAdded] = useState(false);
 
     useEffect(() => {
@@ -18,6 +25,7 @@ export default function AddToCartButton() {
     }, [added])
 
     function handleClick() {
+        addToCart(comic);
         setAdded(true);
     }
 
